@@ -138,6 +138,7 @@ nav .menu-open {
   opacity: 1;
   font-size: 2.5rem;
   color: var(--base-color);
+  margin: 0;
 }
 
 nav.show .menu-open {
