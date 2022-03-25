@@ -78,36 +78,47 @@ a.button {
 
 header #top {
   width: 100vh;
+  border-bottom: 1px solid #e4e4e4;
+  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
 }
 
-nav.container {
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 4.5rem;
 }
 
+.menu {
+  opacity: 0;
+  visibility: hidden;
+  top: -20rem;
+  transition: 0.3s;
+}
+
 .menu ul {
   display: none;
-  visibility: hidden;
+  transition: 0.29s;
 }
+
 nav.show .menu {
+  opacity: 1;
+  visibility: visible;
+  background-color: var(--body-color);
+  height: 100%;
+  width: 100%;
   display: grid;
-  gap: 4rem;
-}
-nav.show .menu ul {
   position: fixed;
   top: 0;
   right: 0;
-  padding: 1rem;
   z-index: 100;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: var(--body-color);
-  display: block;
-  visibility: visible;
+  place-content: center;
+}
+
+nav.show .menu ul {
   display: grid;
+  margin-top: 3.5rem;
+  text-align: center;
 }
 
 .title,
@@ -133,6 +144,27 @@ nav.show .menu-close {
   color: var(--base-color);
 }
 
+nav.show ul li a {
+  transition: 0.2s;
+  position: relative;
+}
+
+nav.show ul li a::after {
+  content: '';
+  width: 0%;
+  height: 2px;
+  background: var(--base-color);
+
+  position: absolute;
+  left: 0;
+  bottom: -1rem;
+  transition: width 0.4s;
+}
+
+nav.show ul li a:hover::after {
+  width: 100%;
+}
+
 nav .menu-open {
   visibility: visible;
   opacity: 1;
@@ -151,10 +183,7 @@ nav.show .menu-open {
   margin: 0.5rem;
 }
 
-header#top {
-  border-bottom: 1px solid #e4e4e4;
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
-}
+/* SECTIONS  */
 
 section {
   margin-top: 2rem;
@@ -220,6 +249,29 @@ section.galery-middle .galery-simple {
   grid-template-columns: 1fr 1fr;
 }
 
-section.galery-middle .galery-simple img{
+section.galery-middle .galery-simple img {
   border: 5px solid var(--base-color);
+}
+
+.footer {
+  font: 300 2rem 'Roboto', sans-serif;
+  color: var(--body-color);
+  background-color: var(--black-color);
+}
+
+.footer .social {
+  display: grid;
+  grid-auto-flow: column;
+  width: fit-content;
+}
+
+.footer .social-icons a {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--body-color);
+  transition: 0.2s;
+}
+
+.footer .social-icons a:hover {
+  transform: translateY(-8px);
 }
