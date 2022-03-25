@@ -74,10 +74,44 @@ a.button {
   margin-right: 1.5rem;
 }
 
+.span-contact {
+  transform: scale(0);
+  transition: 0.3s;
+}
+
+.span-contact.active {
+  position: fixed;
+  background-color: var(--body-color);
+  width: 15rem;
+  height: 6rem;
+  bottom: 100px;
+  right: 10px;
+  clip-path: fill-box;
+  transform: scale(1);
+  /* border: 1px solid var(--black-color); */
+  border-radius: 5px 30px 0px 30px;
+  box-shadow: rgb(0 0 0 / 34%) 0px 2.5px 10px !important;
+}
+
+.whatsapp-contact {
+  position: fixed;
+  background-color: #10774a;
+  width: 5rem;
+  height: 5rem;
+  bottom: 15px;
+  right: 10px;
+  clip-path: circle();
+}
+
 /* -----END POINT---- */
 
-header #top {
-  width: 100vh;
+header#top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  background-color: var(--body-color);
+  width: 100vw;
   border-bottom: 1px solid #e4e4e4;
   box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.2);
 }
@@ -253,26 +287,40 @@ section.galery-middle .galery-simple img {
   border: 5px solid var(--base-color);
 }
 
-.footer {
-  font: 300 2rem 'Roboto', sans-serif;
+footer {
+  background-color: var(--base-color);
   color: var(--body-color);
-  background-color: var(--black-color);
+  padding: 1.5rem;
 }
 
-.footer .social {
-  display: grid;
-  grid-auto-flow: column;
-  width: fit-content;
+footer .contacts {
+  font: 200 1.3rem 'Roboto', sans-serif;
+  gap: 1.5rem;
 }
 
-.footer .social-icons a {
+footer .social-icons {
+  text-align: center;
+  font-size: 2rem;
+  margin: 1.5rem;
+}
+
+footer .contacts i {
+  font-size: 1.9rem;
+}
+
+footer .social-icons a {
   display: inline-block;
   cursor: pointer;
   color: var(--body-color);
   transition: 0.2s;
 }
 
-.footer .social-icons a:hover {
+footer .social-icons a:hover {
   transform: translateY(-8px);
 }
 
+.footer-box {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  align-items: center;
+}
